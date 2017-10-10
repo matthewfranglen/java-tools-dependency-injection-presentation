@@ -105,4 +105,23 @@ This means that the interface based approach becomes a means of implementing the
 The Java configuration was far more natural for Java programmers.
 It is still in use today (e.g. creating beans of a library class).
 
+The location of wiring (configuration) became the next problem.
+Having wiring separate to implementation means that wiring can be viewed as action at a distance (bad).
+However the entire aim of this is to separate the individual components.
+
+By using the type system even more, it is possible for a class to specify its dependents.
+However just specifying dependencies is not sufficient.
+
+You need to be able to distinguish between alternatives.
+There are different bean lifecycles available.
+Blah blah blah.
+Basically additional metadata is required that goes beyond what plain Java classes communicate.
+
+Annotations can provide this metadata.
+
+##### What is a Java Annotation?
+
+An annotation is a special kind of class that you can create.
+It can carry read only values.
+
 #### Spring Boot and Auto Configuration
