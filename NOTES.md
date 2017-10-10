@@ -29,6 +29,57 @@ This shows what the core problem is and how it was subsequently made easier to a
 
 #### XML
 
+The XML approach attacks the configuration problem.
+The core problem in dependency injection is the separation of the application wiring from the individual components.
+
+[Show lego pieces and instruction booklet]
+
+The XML was verbose and specific.
+
+##### Dependencies
+
+You would describe each bean and the dependencies for that bean.
+The dependencies were references to other beans, or hard-coded values.
+
+[Show lego wall with dependencies from row 3 to row 2 etc]
+
+This forms a directed graph of dependencies.
+The creation of the beans must be ordered to create dependencies before dependents.
+This is called topological sorting.
+
+[Show simple dependency graph, go through sorting it]
+
+##### Reflection
+
+Once the order of creation is known you must then create the instances themselves.
+This uses reflection which is how you do meta-programming in Java.
+
+[Show hand drawing itself Escher]
+
+Programming is the act of writing programs which operate on data.
+Meta-programming is the act of writing programs which operate on code as data.
+
+A meta program can take the name of a class and create an instance of that class.
+It can take the name of a method and then call it, and so on.
+The idea is that the individual actions and objects in the program become selectable and combinable blocks of the meta-program.
+
+There is no meta-meta-programming.
+A meta-program can operate over all parts of itself, including the higher level parts.
+
+[Some image about java reflection?]
+
+With reflection in Java you can perform meta-programming and implement dependency injection.
+ * As we saw in the last presentation, the Java Class object is loaded by the Classloader
+   This takes the name of the class and returns the class
+ * The Class object contains a lot of methods of interest
+   It can give you each constructor, method or field on that class
+ * The objects returned by the Class object are useable
+   If the object is a Method or Constructor then it can be invoked
+   Arguments can be passed, returned values can be received
+   Fields can be set or read
+
+With all this the XML configuration can be turned into a running program.
+
 #### Java Configuration
 
 #### Annotation Configuration
