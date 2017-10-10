@@ -105,8 +105,8 @@ This means that the interface based approach becomes a means of implementing the
 The Java configuration was far more natural for Java programmers.
 It is still in use today (e.g. creating beans of a library class).
 
-The location of wiring (configuration) became the next problem.
-Having wiring separate to implementation means that wiring can be viewed as action at a distance (bad).
+The location of configuration became the next problem.
+Having configuration separate to implementation means that configuration can be viewed as action at a distance (bad).
 However the entire aim of this is to separate the individual components.
 
 By using the type system even more, it is possible for a class to specify its dependents.
@@ -121,7 +121,18 @@ Annotations can provide this metadata.
 
 ##### What is a Java Annotation?
 
-An annotation is a special kind of class that you can create.
+An annotation is a special kind of class that you can apply to classes, fields, methods... (basically anything).
 It can carry read only values.
+
+It can be inspected at compile time to instruct the Java compiler.
+This can be used to enhance the compile time checks performed, adding safety.
+E.G. @Override will warn if the method is not overriding another.
+
+It can be (optionally) retained to run time to inform the running application.
+
+##### How are they used?
+
+You can read them from the Class, Method or Field object directly.
+Spring reads them from the classes to determine how to create and use them.
 
 #### Spring Boot and Auto Configuration
