@@ -82,4 +82,27 @@ With all this the XML configuration can be turned into a running program.
 
 #### Java Configuration
 
+The XML configuration provided clear separation between the components of the program and the configuration of the program.
+
+The XML configuration was limited in the expressitivity available.
+It also took significant time to learn and write and maintain.
+It also didn't do any type checking, so invalid configurations were easy to create.
+Everyone already knew Java so configuring the application in Java was the next logical step.
+
+A configuration class can be defined and provided to the Spring Dependency Injection system.
+It can then inspect this class to find every method in it.
+Each method is a bean creating method, and the dependencies are the arguments to the method.
+
+This shows the power of meta-programming.
+The ability to deeply inspect the units of code permits complex decisions to have general solutions.
+This has translated the dependency tree from XML into the methods and their types.
+
+This uses the Java type system to indicate the dependencies of each method.
+This means that the interface based approach becomes a means of implementing the system itself.
+
 #### Annotation Configuration
+
+The Java configuration was far more natural for Java programmers.
+It is still in use today (e.g. creating beans of a library class).
+
+#### Spring Boot and Auto Configuration
