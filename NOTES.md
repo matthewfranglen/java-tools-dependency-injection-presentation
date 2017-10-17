@@ -222,3 +222,5 @@ This is something we will explore further in the next presentation as AOP uses i
 
 JUnit & Mockito use these same techniques to do testing.
 Discuss.
+
+(annotations for junit and dynamic code generation for mockito)
