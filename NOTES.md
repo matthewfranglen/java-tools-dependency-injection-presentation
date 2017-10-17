@@ -70,12 +70,23 @@ This shows what the core problem is and how it was subsequently made easier to a
 
 Used exclusively in the first versions of Spring.
 
-The XML approach attacks the configuration problem.
-The core problem in dependency injection is the separation of the application wiring from the individual components.
+---
 
-[Show lego pieces and instruction booklet]
+[Show lego booklet slide]
 
-The XML was verbose and specific.
+The XML separates the wiring of the application from the individual classes.
+This is like the instruction booklet which comes with lego - it tells you how to compose the application from the parts.
+This separation of configuration and implementation allows the implementor to be completely unaware of spring.
+
+---
+
+[Show xml example slide]
+
+This XML creates two beans.
+
+It is verbose and requires learning a new language (the XML Domain Specific Language of Spring Dependency Injection).
+It's fair to say that a lot of people did not like this.
+
 
 ##### Reflection
 
