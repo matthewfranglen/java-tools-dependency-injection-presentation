@@ -2,40 +2,56 @@ Overview
 --------
 
 This will cover how stuff works under the hood:
-- Spring DI, reflection, annotation processing
-- JUnit, reflection, annotation processing
+- Spring Dependency Injection
+    - Reflection
+    - Annotation processing
+    - Generated proxies
 
-- Spring AOP, proxy pattern, dynamic proxies in java
-- code coverage, byte/source code injection, java agents
-
-- sampling vs profiling
+We will then talk about JUnit to show how the same techniques can facilitate testing.
 
 Spring Dependency Injection
 ---------------------------
+
+[Show what problem slide]
 
 ### What problem does this solve?
 
 This reduces coupling between classes.
 
-### How is this achieved?
+#### How is this achieved?
 
-The application is split into individual components which each perform a single function (beans).
-Each component is provided with the other components it requires by a _dependency injection system_.
-Each component implements an interface declaring its public api, and references other components using their interfaces.
-This allows the implementation of a given component to be changed independent of the rest (in theory).
+Classes define what they require.
+A dependency injection system provides their requirements.
+The implementation of a requirement can change without the dependent being aware.
 
-##### Dependencies
+---
+
+[Show dependency 1 slide]
+
+### Dependencies
 
 You would describe each bean and the dependencies for that bean.
 The dependencies were references to other beans, or hard-coded values.
 
-[Show lego wall with dependencies from row 3 to row 2 etc]
+---
+
+[Show dependency 2 slide]
 
 This forms a directed graph of dependencies.
 The creation of the beans must be ordered to create dependencies before dependents.
+
+---
+
+[Show topological sort slide, go through sorting it]
+
 This is called topological sorting.
 
-[Show simple dependency graph, go through sorting it]
+---
+
+[Show cycle slide]
+
+You cannot perform a topological sort over a graph that has a cycle in it.
+A cycle is any series of dependencies which lead back to the original bean.
 
 ### How is this implemented?
 
