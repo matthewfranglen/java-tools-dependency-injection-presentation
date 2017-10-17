@@ -53,12 +53,22 @@ This is called topological sorting.
 You cannot perform a topological sort over a graph that has a cycle in it.
 A cycle is any series of dependencies which lead back to the original bean.
 
+---
+
+[Show implementation details slide]
+
 ### How is this implemented?
 
 It can be good to understand how Spring Dependency Injection changed over time.
 This shows what the core problem is and how it was subsequently made easier to address.
 
+---
+
+[Show XML config slide]
+
 #### XML
+
+Used exclusively in the first versions of Spring.
 
 The XML approach attacks the configuration problem.
 The core problem in dependency injection is the separation of the application wiring from the individual components.
@@ -111,6 +121,8 @@ A configuration class can be defined and provided to the Spring Dependency Injec
 It can then inspect this class to find every method in it.
 Each method is a bean creating method, and the dependencies are the arguments to the method.
 
+Used @Configuration @Autowired and @Bean annotations.
+
 This shows the power of meta-programming.
 The ability to deeply inspect the units of code permits complex decisions to have general solutions.
 This has translated the dependency tree from XML into the methods and their types.
@@ -118,7 +130,7 @@ This has translated the dependency tree from XML into the methods and their type
 This uses the Java type system to indicate the dependencies of each method.
 This means that the interface based approach becomes a means of implementing the system itself.
 
-#### Annotation Configuration
+#### Extended Annotations
 
 The Java configuration was far more natural for Java programmers.
 It is still in use today (e.g. creating beans of a library class).
