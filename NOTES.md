@@ -19,10 +19,23 @@ This reduces coupling between classes.
 
 ### How is this achieved?
 
-The application is split into individual components which each perform a single function.
+The application is split into individual components which each perform a single function (beans).
 Each component is provided with the other components it requires by a _dependency injection system_.
 Each component implements an interface declaring its public api, and references other components using their interfaces.
 This allows the implementation of a given component to be changed independent of the rest (in theory).
+
+##### Dependencies
+
+You would describe each bean and the dependencies for that bean.
+The dependencies were references to other beans, or hard-coded values.
+
+[Show lego wall with dependencies from row 3 to row 2 etc]
+
+This forms a directed graph of dependencies.
+The creation of the beans must be ordered to create dependencies before dependents.
+This is called topological sorting.
+
+[Show simple dependency graph, go through sorting it]
 
 ### How is this implemented?
 
@@ -37,19 +50,6 @@ The core problem in dependency injection is the separation of the application wi
 [Show lego pieces and instruction booklet]
 
 The XML was verbose and specific.
-
-##### Dependencies
-
-You would describe each bean and the dependencies for that bean.
-The dependencies were references to other beans, or hard-coded values.
-
-[Show lego wall with dependencies from row 3 to row 2 etc]
-
-This forms a directed graph of dependencies.
-The creation of the beans must be ordered to create dependencies before dependents.
-This is called topological sorting.
-
-[Show simple dependency graph, go through sorting it]
 
 ##### Reflection
 
