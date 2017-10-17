@@ -87,16 +87,31 @@ This XML creates two beans.
 It is verbose and requires learning a new language (the XML Domain Specific Language of Spring Dependency Injection).
 It's fair to say that a lot of people did not like this.
 
+---
 
-##### Reflection
+[Show transformation slide]
 
-Once the order of creation is known you must then create the instances themselves.
-This uses reflection which is how you do meta-programming in Java.
+Now that we have the XML we need to be able to create an application from it.
 
-[Show hand drawing itself Escher]
+---
+
+[Show meta-programming slide]
+
+#### Meta Programming
 
 Programming is the act of writing programs which operate on data.
 Meta-programming is the act of writing programs which operate on code as data.
+
+---
+
+[Show reflection slide]
+
+Reflection is one of the ways that meta programming is done in java.
+The reflection classes provide ways for your code to look at itself.
+
+We need to be able to create a class from a string.
+We saw that a class loader can do this.
+
 
 A meta program can take the name of a class and create an instance of that class.
 It can take the name of a method and then call it, and so on.
