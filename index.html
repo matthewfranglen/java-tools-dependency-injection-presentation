@@ -114,6 +114,22 @@
                     <pre><code class="java">this.getClassLoader().loadClass(className)</code></pre>
                 </section>
 
+                <section>
+                    <p>Create Class</p>
+                    <pre><code class="java">getClass().newInstance()</code></pre>
+                    <pre><code class="java">getClass().getConstructor(String.class)
+    .newInstance(string)</code></pre>
+                </section>
+
+                <section>
+                    <p>Set Fields</p>
+                    <pre><code class="java">getClass().getField("field")
+    .set(this, "value")</code></pre>
+                    <p>Call Methods</p>
+                    <pre><code class="java">getClass().getMethod("setField", String.class)
+    .invoke(this, "value")</code></pre>
+                </section>
+
         </div>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/head.min.js"></script>

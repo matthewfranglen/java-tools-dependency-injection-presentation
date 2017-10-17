@@ -102,6 +102,9 @@ Now that we have the XML we need to be able to create an application from it.
 Programming is the act of writing programs which operate on data.
 Meta-programming is the act of writing programs which operate on code as data.
 
+There is no meta-meta-programming.
+A meta-program can operate over all parts of itself, including the higher level parts.
+
 ---
 
 [Show reflection slide]
@@ -109,30 +112,35 @@ Meta-programming is the act of writing programs which operate on code as data.
 Reflection is one of the ways that meta programming is done in java.
 The reflection classes provide ways for your code to look at itself.
 
+---
+
+[Show String to Class slide]
+
 We need to be able to create a class from a string.
 We saw that a class loader can do this.
 
+---
 
-A meta program can take the name of a class and create an instance of that class.
-It can take the name of a method and then call it, and so on.
-The idea is that the individual actions and objects in the program become selectable and combinable blocks of the meta-program.
+[Show Create Class slide]
 
-There is no meta-meta-programming.
-A meta-program can operate over all parts of itself, including the higher level parts.
+The class is not enough - we need to be able to create an instance of it.
 
-[Some image about java reflection?]
+This can require providing dependencies.
+When satisfying these dependencies we need a store for them.
+The application context is that store.
 
-With reflection in Java you can perform meta-programming and implement dependency injection.
- * As we saw in the last presentation, the Java Class object is loaded by the Classloader
-   This takes the name of the class and returns the class
- * The Class object contains a lot of methods of interest
-   It can give you each constructor, method or field on that class
- * The objects returned by the Class object are useable
-   If the object is a Method or Constructor then it can be invoked
-   Arguments can be passed, returned values can be received
-   Fields can be set or read
+---
+
+[Show field setting and methods slide]
+
+Can call methods and directly set fields.
+Depending on the security manager this can completely ignore access controls (e.g. private, final).
 
 With all this the XML configuration can be turned into a running program.
+
+---
+
+[Show annotations slide]
 
 #### Java Configuration
 
@@ -143,37 +151,17 @@ It also took significant time to learn and write and maintain.
 It also didn't do any type checking, so invalid configurations were easy to create.
 Everyone already knew Java so configuring the application in Java was the next logical step.
 
-A configuration class can be defined and provided to the Spring Dependency Injection system.
-It can then inspect this class to find every method in it.
-Each method is a bean creating method, and the dependencies are the arguments to the method.
-
-Used @Configuration @Autowired and @Bean annotations.
+Using annotations and Java code for configuration was far more natural.
+We have all used spring annotations so I'm not going to go deeply into using them.
+The important thing to realise is that annotations are there to provide meta data.
+You use this meta data to direct your meta programs.
 
 This shows the power of meta-programming.
 The ability to deeply inspect the units of code permits complex decisions to have general solutions.
 This has translated the dependency tree from XML into the methods and their types.
 
-This uses the Java type system to indicate the dependencies of each method.
+This approach also uses the Java type system to indicate the dependencies of each method.
 This means that the interface based approach becomes a means of implementing the system itself.
-
-#### Extended Annotations
-
-The Java configuration was far more natural for Java programmers.
-It is still in use today (e.g. creating beans of a library class).
-
-The location of configuration became the next problem.
-Having configuration separate to implementation means that configuration can be viewed as action at a distance (bad).
-However the entire aim of this is to separate the individual components.
-
-By using the type system even more, it is possible for a class to specify its dependents.
-However just specifying dependencies is not sufficient.
-
-You need to be able to distinguish between alternatives.
-There are different bean lifecycles available.
-Blah blah blah.
-Basically additional metadata is required that goes beyond what plain Java classes communicate.
-
-Annotations can provide this metadata.
 
 ##### What is a Java Annotation?
 
