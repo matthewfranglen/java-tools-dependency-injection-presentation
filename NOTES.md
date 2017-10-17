@@ -142,6 +142,8 @@ With all this the XML configuration can be turned into a running program.
 
 [Show annotations slide]
 
+(it's from David Copperfield by Charles Dickens)
+
 #### Java Configuration
 
 The XML configuration provided clear separation between the components of the program and the configuration of the program.
@@ -163,6 +165,10 @@ This has translated the dependency tree from XML into the methods and their type
 This approach also uses the Java type system to indicate the dependencies of each method.
 This means that the interface based approach becomes a means of implementing the system itself.
 
+---
+
+[Show creating annotations slide]
+
 ##### What is a Java Annotation?
 
 An annotation is a special kind of class that you can apply to classes, fields, methods... (basically anything).
@@ -174,9 +180,40 @@ E.G. @Override will warn if the method is not overriding another.
 
 It can be (optionally) retained to run time to inform the running application.
 
+---
+
+[Show reading annotations slide]
+
 ##### How are they used?
 
 You can read them from the Class, Method or Field object directly.
 Spring reads them from the classes to determine how to create and use them.
 
-#### Spring Boot and Auto Configuration
+---
+
+[Show scope slide]
+
+The final thing to mention for this is bean scope.
+The scope determines when the bean will be created.
+
+In some scopes the bean to use varies based on the current request being processed.
+These can be used from beans with a more restricted scope.
+This means that a single object must be able to act like a lot of different objects.
+
+---
+
+[Show aliens slide]
+
+#### Dynamic Code Generation
+
+Given all of this information available about the expectations of the program it can be possible to generate the code that will satisfy those requirements.
+A class loader can be created that can load the class you can generate.
+
+---
+
+[Show dynamic proxy slide]
+
+This allows the generation of a class which behaves and appears to be the original and yet acts as an intermediary.
+
+With the ability to generate new code meta programming in java is complete.
+This is something we will explore further in the next presentation as AOP uses it extensively.

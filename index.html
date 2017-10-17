@@ -81,7 +81,6 @@
                 </section>
 
                 <section>
-                    <p>This is what it looks like</p>
                     <pre><code class="xml">
 &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -96,7 +95,6 @@
 
 &lt;/beans&gt;
                     </code></pre>
-                    <small>from mkyong.com with abbreviations</small>
                 </section>
 
                 <section>
@@ -110,26 +108,62 @@
                 </section>
 
                 <section>
-                    <p>String ➜ Class</p>
+                    <h2>String ➜ Class</h2>
                     <pre><code class="java">this.getClassLoader().loadClass(className)</code></pre>
                 </section>
 
                 <section>
-                    <p>Create Class</p>
+                    <h2>Create Class</h2>
                     <pre><code class="java">getClass().newInstance()</code></pre>
                     <pre><code class="java">getClass().getConstructor(String.class)
     .newInstance(string)</code></pre>
                 </section>
 
                 <section>
-                    <p>Set Fields</p>
+                    <h2>Set Fields</h2>
                     <pre><code class="java">getClass().getField("field")
     .set(this, "value")</code></pre>
-                    <p>Call Methods</p>
+                    <h2>Call Methods</h2>
                     <pre><code class="java">getClass().getMethod("setField", String.class)
     .invoke(this, "value")</code></pre>
                 </section>
 
+                <section data-background="media/annotations.png">
+                </section>
+
+                <section>
+                    <h2>Creating Annotations</h2>
+                    <pre><code class="java">
+@Retention(RetentionPolicy.RUNTIME)
+@interface MyAnnotation {
+    String value();
+}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Reading Annotations</h2>
+                    <pre><code class="java">getClass().getAnnotations()</code></pre>
+                    <pre><code class="java">getClass().getField("field")
+    .getAnnotations()</code></pre>
+                    <pre><code class="java">getClass().getMethod("setField", String.class)
+    .getAnnotations()</code></pre>
+                </section>
+
+                <section>
+                    <h2>Bean Scope</h2>
+                    <ul>
+                        <li>Only One Ever</li>
+                        <li>New Every Time</li>
+                        <li>New Every HTTP Request</li>
+                    </ul>
+                </section>
+
+                <section data-background="media/aliens.jpg">
+                </section>
+
+                <section data-background="media/spring-session-bean-proxy.png" data-background-size="contain" data-background-color="#FFF">
+                </section>
         </div>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/head.min.js"></script>
