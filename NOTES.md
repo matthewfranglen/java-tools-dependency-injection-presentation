@@ -217,3 +217,8 @@ This allows the generation of a class which behaves and appears to be the origin
 
 With the ability to generate new code meta programming in java is complete.
 This is something we will explore further in the next presentation as AOP uses it extensively.
+
+### JUnit
+
+JUnit & Mockito use these same techniques to do testing.
+Discuss.
